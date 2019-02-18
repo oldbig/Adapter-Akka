@@ -3,10 +3,12 @@ package com.openbankproject.adapter;
 import akka.actor.*;
 import com.openbankproject.adapter.actor.ResultActor;
 import com.typesafe.config.ConfigFactory;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class DemoTest {
     @Test
+    @Ignore
     public void client() throws InterruptedException {
 
         ActorSystem actorSystem = ActorSystem.create("akka_client", ConfigFactory.load("application-test.conf"));
