@@ -9,3 +9,10 @@ akka_connector.port=2662
 ```
 
 currently, only "Get Adapter Info (general)" endpoint is works.
+in the project folder, execute follow command to pacakge and start project
+
+```
+  mvn package
+  cd target
+  java -jar akka-adapter-0.0.1-SNAPSHOT.jar
+```
