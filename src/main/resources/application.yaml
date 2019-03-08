@@ -9,20 +9,6 @@ adapter:
   remote.base.url: http://127.0.0.1:9090
 
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/obp-mapped
-    driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: 123456
-  jpa:
-    hibernate:
-      ddl-auto: validate
-    show-sql: true
-    properties:
-      hibernate:
-        jdbc:
-          lob:
-            non_contextual_creation: true
   # we are using multiple @FeignClient beans and without bean overriding the app fails to start.
   # see https://stackoverflow.com/questions/53787550/jpaauditinghandler-defined-in-null-on-application-startup-using-spring-boot
   main.allow-bean-definition-overriding: true
@@ -33,7 +19,24 @@ management:
   server.port: 9001
   endpoints:
     web.base-path: /monitor
-    web.exposure.include: "*"
+    # disable actuator
+    web.exposure.exclude: "*"
     health.show-details: always
 
+openbankproject:
+  adapter:
+    swagger.enable: false
 
+---
+spring:
+  profiles: dev
+
+openbankproject:
+  adapter:
+    swagger.enable: true
+
+management:
+  endpoints:
+    web.exposure:
+      include: "*"
+      exclude: ""

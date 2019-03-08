@@ -1,5 +1,6 @@
 package com.openbankproject.adapter.config
 
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.{Bean, Configuration}
 import springfox.documentation.builders.{ApiInfoBuilder, PathSelectors, RequestHandlerSelectors}
 import springfox.documentation.service.ApiInfo
@@ -10,9 +11,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2
 @Configuration
 @EnableSwagger2
 class Swagger2Config {
+  @Value("${openbankproject.adapter.swagger.enable:false}")
+  var enableSwagger: Boolean = _
+
   @Bean
   def createRestApi() :Docket = {
      new Docket(DocumentationType.SWAGGER_2)
+      .enable(enableSwagger)
       .apiInfo(apiInfo())
       .select()
       .apis(RequestHandlerSelectors.basePackage("com.openbankproject.adapter.endpoint"))
