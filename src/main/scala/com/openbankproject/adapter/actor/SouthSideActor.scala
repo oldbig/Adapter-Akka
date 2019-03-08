@@ -12,12 +12,12 @@ import org.springframework.stereotype.Component
 class SouthSideActor  extends Actor  {
   val mockAdapaterInfo =
     s"""
-      |{
-      |  "name":"String",
-      |  "version":"String",
-      |  "git_commit":"String",
-      |  "date":"${new Date()}"
-      |}
+       |{
+       |  "name":"String",
+       |  "version":"String",
+       |  "git_commit":"String",
+       |  "date":"${new Date()}"
+       |}
     """.stripMargin
 
   def receive = {
