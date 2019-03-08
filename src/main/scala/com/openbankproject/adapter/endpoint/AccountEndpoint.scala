@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation._
 
 @RestController
 @RequestMapping(Array("v1/bank"))
-@Api(tags = Array("banks operation."))
+@Api(tags = Array("account operation."))
 class AccountEndpoint {
   @Resource
   val accountService: BankAccountService = null
