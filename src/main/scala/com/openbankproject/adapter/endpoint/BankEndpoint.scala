@@ -30,7 +30,7 @@ class BankEndpoint {
   def deleteBank(@PathVariable("id") id :Long) = this.bankDao.deleteById(id)
 
 
-  //@GetMapping(Array("/shortBankName/{shortBankName}"))
-  //def getByShortBankName(@PathVariable("shortBankName") shortBankName: String): java.util.List[Bank] = this.bankDao.findByShortBankName(shortBankName)
+  @GetMapping(Array("/shortBankName/{shortBankName}"))
+  def getByShortBankName(@PathVariable("shortBankName") shortBankName: String): java.util.List[Bank] = this.bankDao.findByShortBankName(shortBankName)
 
 }
