@@ -12,8 +12,8 @@ class AccountEndpoint {
   @Resource
   val accountService: BankAccountService = null
 
-  @GetMapping(Array("/account"))
-  def getAll = this.accountService.getAccounts("hello-bank-id")
+  @GetMapping(Array("/bank/{BANK_ID}/account"))
+  def getBankFromRemote(@PathVariable("BANK_ID") bankId: String) = this.accountService.getAccounts(s"hello-${bankId}")
 
 
 
