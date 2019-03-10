@@ -1,5 +1,8 @@
 # Adapter-Akka
 
+## this branch is a demo of spring boot usage, the Account.groovy shown in video is in src/main/resources/ path.
+
+
 * the OBP-API project should checkout `feature/remote_akka`, if it is not send pull request, you can find it at [oldbig rep](https://github.com/oldbig/OBP-API/tree/feature/remote_akka)
 * the default.props file in OBP-API should have the follow settings
 ```
